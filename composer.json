@@ -1,7 +1,7 @@
 {
     "name": "vanyabrovary/laravel-swagger",
     "description": "froked from mtrajano/laravel-swagger. Auto generates the swagger documentation for a laravel project",
-    "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Vanyabrovary forked from Mauricio Trajano",
