@@ -1,0 +1,38 @@
+{
+    "name": "vanyabrovary/laravel-swagger",
+    "description": "froked from mtrajano/laravel-swagger. Auto generates the swagger documentation for a laravel project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vanyabrovary forked from Mauricio Trajano",
+            "email": "vanyabrovaru@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "php": ">=7.2",
+        "orchestra/testbench": "~4.0",
+        "phpunit/phpunit": "8.3.*",
+        "laravel/passport": "^8.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Vanyabrovary\\LaravelSwagger\\": "src/"
+        }
+    },
+    "suggest": {
+        "ext-yaml": "Required to use the YAML output option"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vanyabrovary\\LaravelSwagger\\SwaggerServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "phpdocumentor/reflection-docblock": "^5.2.1"
+    }
+}
