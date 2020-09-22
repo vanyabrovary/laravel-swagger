@@ -7,8 +7,11 @@ use Illuminate\Support\Str;
 use phpDocumentor\Reflection\DocBlockFactory;
 use ReflectionMethod;
 
+
 class Generator
 {
+    use Parameters\Concerns\ParserDoc;
+
     const SECURITY_DEFINITION_NAME = 'OAuth2';
     const OAUTH_TOKEN_PATH = '/oauth/token';
     const OAUTH_AUTHORIZE_PATH = '/oauth/authorize';
@@ -131,12 +134,12 @@ class Generator
         $actionInstance = $this->getActionClassInstance();
         $docBlock = $actionInstance ? ($actionInstance->getDocComment() ?: '') : '';
 
-        [$isDeprecated, $summary, $description] = $this->parseActionDocBlock($docBlock);
+        [$tags,$desc,$summ] = $this->parserDocBlockGroup($docBlock);
 
         $this->docs['paths'][$this->route->uri()][$this->method] = [
-            'summary' => $summary,
-            'description' => $description,
-            'deprecated' => $isDeprecated,
+            'tags' => ($tags ?? 'Ather'),
+            'description' => $summ,
+            'summary' => $desc,
             'responses' => [
                 '200' => [
                     'description' => 'OK',
